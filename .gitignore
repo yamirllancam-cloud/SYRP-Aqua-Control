@@ -1,0 +1,4 @@
+riego_data.db
+__pycache__/
+.streamlit/
+*.pyc
