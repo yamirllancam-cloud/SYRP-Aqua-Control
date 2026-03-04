@@ -1,4 +1,4 @@
-# 🌱 SYRP-Aqua-Control - Sistema de Riego IoT
+# 🌱 SYRP-Aqua-Control
 
 ## 🗳️ Descripción
 
