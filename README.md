@@ -4,7 +4,7 @@
 
 **SYRP-Aqua-Control** es un ecosistema inteligente de monitoreo y automatización de riego diseñado para optimizar el consumo de agua en cultivos domésticos o pequeños invernaderos.
 
-Combina una interfaz web moderna en tiempo real con un controlador de hardware robusto basado en Arduino.
+Combina una interfaz web moderna en tiempo real con un controlador de hardware robusto basado en Arduino, permitiendo control automático, manual y almacenamiento histórico de datos.
 
 ---
 
@@ -18,14 +18,16 @@ Combina una interfaz web moderna en tiempo real con un controlador de hardware r
 
 - 🤖 **Control por Histéresis**
   - Evita activaciones falsas de la bomba
-  - Protege la vida útil del hardware
+  - Reduce el desgaste del relé
+  - Mejora la estabilidad del sistema
 
 - 💾 **Persistencia de Datos**
   - Almacenamiento automático en base de datos SQLite
-  - Análisis histórico de lecturas
+  - Registro histórico de lecturas
+  - Exportación de datos en CSV
 
 - 🎮 **Modos de Operación**
-  - **Manual** → Control directo de la bomba
+  - **Manual** → Control directo de la bomba desde el dashboard
   - **Automático** → Control inteligente basado en sensores
 
 - ⚠️ **Alertas de Seguridad**
@@ -105,21 +107,24 @@ streamlit run Proyecto_Verano.py
 ## 🔌 Conexión
 
 - Conectar el Arduino vía USB.
-- Verificar que el puerto COM seleccionado sea el correcto.
+- Verificar que el puerto COM seleccionado sea el correcto en el archivo principal.
+- Presionar **Conectar** en el dashboard.
 
 ## 📊 Dashboard
 
-- 🟢 Verde → Valores óptimos.
-- 🔴 Rojo → Alerta.
+- 🟢 Verde → Valores dentro del rango óptimo.
+- 🔴 Rojo → Estado de alerta o riesgo.
 
 ## 🎮 Control
 
-- Activar **"Modo Manual"** para riego inmediato.
-- En **Modo Automático**, el sistema ejecuta la lógica basada en sensores.
+- Activar **Modo Manual** para encender/apagar la bomba manualmente.
+- En **Modo Automático**, el sistema ejecuta la lógica basada en sensores y umbrales definidos.
 
 ## 📥 Historial
 
-- Descargar datos en formato **CSV** desde la tabla inferior del dashboard.
+- Visualización gráfica en tiempo real.
+- Tabla con últimos registros almacenados.
+- Descarga de datos en formato **CSV**.
 
 ---
 
@@ -150,7 +155,7 @@ Si **Humedad < 30%** → Activar riego.
 Solo detener riego cuando **Humedad > 60%**.
 
 ### 🔹 Seguridad del Tanque
-Si el nivel es **< 5 cm** → Bloqueo automático de la bomba.
+Si el nivel es **< 5 cm** → Bloqueo automático de la bomba para evitar funcionamiento en seco.
 
 ---
 
@@ -159,13 +164,17 @@ Si el nivel es **< 5 cm** → Bloqueo automático de la bomba.
 ```
 SYRP-Aqua-Control/
 │
-├── Proyecto_Verano.py        # Dashboard + lógica principal
+├── Proyecto_Verano.py          # Aplicación principal (Dashboard + lógica de control)
 ├── Arduino/
-│   └── Arduino.ino           # Firmware del microcontrolador
-├── requirements.txt          # Dependencias
-├── database.db               # Base de datos (auto-generada)
-├── planta.png                # Activos visuales
-└── README.md
+│   └── Arduino.ino             # Firmware del microcontrolador
+│
+├── requirements.txt            # Dependencias del proyecto Python
+├── README.md                   # Documentación principal del proyecto
+│
+├── database.db                 # Base de datos SQLite (se genera automáticamente)
+├── planta.png                  # Recursos gráficos del dashboard
+│
+└── .gitignore                  # Archivos excluidos del control de versiones
 ```
 
 ---
