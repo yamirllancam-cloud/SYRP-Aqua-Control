@@ -2,7 +2,7 @@
 
 ## 🗳️ Descripción
 
-**SYRP-Aqua-Control** es un ecosistema inteligente de monitoreo y automatización de riego diseñado para optimizar el consumo de agua en cultivos domésticos o pequeños invernaderos.  
+**SYRP-Aqua-Control** es un ecosistema inteligente de monitoreo y automatización de riego diseñado para optimizar el consumo de agua en cultivos domésticos o pequeños invernaderos.
 
 Combina una interfaz web moderna en tiempo real con un controlador de hardware robusto basado en Arduino.
 
@@ -78,23 +78,21 @@ Combina una interfaz web moderna en tiempo real con un controlador de hardware r
 ```bash
 git clone https://github.com/yamirllancam-cloud/SYRP-Aqua-Control.git
 cd SYRP-Aqua-Control
-## 2️⃣ Cargar el Hardware
+```
+
+#### 2️⃣ Cargar el Hardware
 
 - Abrir `Arduino/Arduino.ino` en el IDE de Arduino.
 - Seleccionar la placa (Uno / Nano / Mega).
 - Subir el firmware a la placa.
 
----
-
-## 3️⃣ Instalar dependencias
+#### 3️⃣ Instalar dependencias
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## 4️⃣ Ejecutar la aplicación
+#### 4️⃣ Ejecutar la aplicación
 
 ```bash
 streamlit run Proyecto_Verano.py
@@ -109,21 +107,15 @@ streamlit run Proyecto_Verano.py
 - Conectar el Arduino vía USB.
 - Verificar que el puerto COM seleccionado sea el correcto.
 
----
-
 ## 📊 Dashboard
 
 - 🟢 Verde → Valores óptimos.
 - 🔴 Rojo → Alerta.
 
----
-
 ## 🎮 Control
 
 - Activar **"Modo Manual"** para riego inmediato.
 - En **Modo Automático**, el sistema ejecuta la lógica basada en sensores.
-
----
 
 ## 📥 Historial
 
